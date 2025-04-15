@@ -24,11 +24,11 @@ int ReadFile_Process(ofstream& file_o, ifstream& file,
         for (uint i = 0; i < n; i++)
             file >> ptr[2*i] >> separator >>  ptr[2*i+1];
             
-		cout << "S= " << budget << ", " << "n= " << n << endl;
-		file_o << "S= " << budget << ", " << "n= " << n << endl;
+		cout << "S = " << budget << ", " << "n = " << n << endl;
+		file_o << "S = " << budget << ", " << "n = " << n << endl;
 		
-        cout << "w= [";
-        file_o << "w= [";
+        cout << "w = [";
+        file_o << "w = [";
         cout << ptr[0];
         file_o << ptr[0];
         
@@ -41,8 +41,8 @@ int ReadFile_Process(ofstream& file_o, ifstream& file,
         cout << " ]" << endl;
         file_o << " ]" << endl;
         
-        cout << "r=[ ";   
-		file_o <<  "r= [ "; 
+        cout << "r = [ ";   
+		file_o <<  "r = [ "; 
 		  
         cout << ptr[1];
         file_o << ptr[1];
@@ -51,31 +51,30 @@ int ReadFile_Process(ofstream& file_o, ifstream& file,
         	cout << " " << ptr[2*i+1];
         	file_o << " " << ptr[2*i+1];
     	}
-    	
+    	//
         cout << " ]" << endl; 	
         file_o  << " ]" << endl;
 		double counter = 0.0;
-		
+		//
         for(uint i = 0; i < n; i++ ){
         	counter+=(budget * ptr[2*i] * (1 + ptr[2*i+1] ));
 		}
-		
+		//
 		delete[] ptr;
 		rate = (counter)/((double) budget) - 1;
-		
+		//
 		cout << " V: " << counter << endl;
 		cout << fixed << setprecision(4);
 		cout << " Rate of return of portfolio: " << rate << endl;
-		
+		//
 		file_o << " V: " << counter << endl;
 		file_o << fixed << setprecision(4);
 		file_o << " Rate of return of portfolio: " << rate << endl;
-		
+		//
 		file_o.close();
 		file.close();
 		
         return 0;
-        
 	 }
 	 else
 	{
